@@ -1,0 +1,5 @@
+config/mosquitto.passwd
+.idea
+.vscode
+data
+log

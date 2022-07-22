@@ -1,0 +1,27 @@
+version: "3"
+services:
+  broker:
+    image: mqtt/broker:latest
+    ports: 
+      - "1883:1883"
+    networks:
+      - mqtt-test
+    volumes:
+      - ./../log:/mosquitto/log
+      - ./../data:/mosquitto/data
+    command:
+      - "sh"
+      - "-c"
+      - "tail -f /mosquitto/log/mosquitto.log"
+
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - "1880:1880"
+    networks:
+      - mqtt-test
+
+networks:
+  mqtt-test:
