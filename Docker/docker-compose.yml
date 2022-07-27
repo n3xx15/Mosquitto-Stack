@@ -22,6 +22,8 @@ services:
       - TZ=Europe/Berlin
     ports:
       - "1880:1880"
+    volumes:
+      - ./../nodered-data:/data
     networks:
       - mqtt-test
 
