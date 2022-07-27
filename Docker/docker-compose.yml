@@ -2,6 +2,7 @@ version: "3"
 services:
   broker:
     image: mqtt/broker:latest
+    restart: always
     ports: 
       - "1883:1883"
     networks:
@@ -16,6 +17,7 @@ services:
 
   node-red:
     image: nodered/node-red:latest
+    restart: always
     environment:
       - TZ=Europe/Berlin
     ports:
